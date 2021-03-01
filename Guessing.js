@@ -8,23 +8,23 @@ function check(difficulty){
 }
 
 function play(low,high,difficulty,randnum,person) {
-  for (i=(24/difficulty); i>1;i--){
+  for (i=(24/difficulty); i>0;i--){
     var guess = prompt("What do you think the number is?", "")
 
     if (guess < randnum){
-      alert("Higher! " + (i-1) + " more tries!")
+      console.log("Higher! " + (i-1) + " more tries!")
     }else if (guess > randnum){
-      alert("Lower! " + (i-1) + " more tries!")
+      console.log("Lower! " + (i-1) + " more tries!")
     }else if (guess == randnum) {
       alert("You got it!")
       return randnum
       break;
     }else {
-      alert("Please put in a number!")
+      console.log("Please put in a number!")
     }
   }
-  alert('No! You almost had it!')
-  alert("The answer was " + randnum + "!")
+  console.log('No! You almost had it!')
+  console.log("The answer was " + randnum + "!")
 }
 
 var person = prompt("Please enter your name", "Harry Potter");
@@ -46,3 +46,7 @@ if (isNaN(difficulty)) {
 } else {
   alert('Not a valid number')
 }
+
+console.log("Where is this")
+
+//This is the end
