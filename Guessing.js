@@ -16,7 +16,7 @@ function play(low,high,difficulty,randnum,person) {
     }else if (guess > randnum){
       console.log("Lower! " + (i-1) + " more tries!")
     }else if (guess == randnum) {
-      alert("You got it!")
+      console.log("You got it!")
       return randnum
       break;
     }else {
@@ -30,7 +30,7 @@ function play(low,high,difficulty,randnum,person) {
 var person = prompt("Please enter your name", "Harry Potter");
 
 if (person != null) {
-  alert("Hello " + person + "! How are you today? Let's get started! Today, we will play a guessing game!");
+  console.log("Hello " + person + "! How are you today? Let's get started! Today, we will play a guessing game!");
 } 
 
 var low = Math.floor(Math.random()*101)
@@ -40,11 +40,11 @@ var high = Math.floor(Math.random()*101)
 var difficulty = prompt("Please pick a difficulty (1-easy, 2-medium, 3-hard", "");
 
 if (isNaN(difficulty)) {
-  alert('Stop messing up my code!'); 
+  console.log('Stop messing up my code!'); 
 } else if (Math.floor(difficulty)<=3 && Math.floor(difficulty)>=1) {
   check(difficulty)
 } else {
-  alert('Not a valid number')
+  console.log('Not a valid number')
 }
 
 console.log("Where is this")
