@@ -76,7 +76,7 @@
       function setZoom(zoom) {
         map.setZoom(zoom);
       }
-
+      
       function getZoomLevel() {
         alert('Current zoom is: ' + Math.round(map.getZoom()));
       }
@@ -95,9 +95,14 @@
                 {heading: 90, tilt: 25, duration: 1});
       }
 
+      function load(){
+        window.location='Europe.html';
+
+      }
+
       function panTo(coords) {
         map.panTo(coords);
-        
+        setTimeout(load,3000)
       }
     </script>
     <style>
