@@ -21,6 +21,14 @@ body {
   font-size: 20px;
 }
 
+.bottomleft {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 20px;
+}
+
+
 .bottomcenter {
   position: absolute;
   bottom: 8px;
@@ -135,7 +143,7 @@ body {
     }
     .buttony {
   border-radius: 4px;
-  background-color: #1c99e254;
+  background-color: #1c99e298;
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -191,6 +199,24 @@ body {
         </style> 
 
 <style>
+img.resize {
+  max-width:25%;
+  max-height:25%;
+  float: left;
+  margin-left: 70px;
+}
+img.resize1 {
+  max-width:25%;
+  max-height:25%;
+  float: left;
+  margin-left: 300px;
+}
+img.resize2 {
+  max-width:20%;
+  max-height:20%;
+  float: left;
+  margin-left: 70px;
+}
 input[type=range] {
   -webkit-appearance: none;
   margin: 20px 0;
@@ -206,7 +232,7 @@ input[type=range]::-webkit-slider-runnable-track {
   cursor: pointer;
   animate: 0.2s;
   background: #03a9f4;
-  border-radius: 25px;
+  border-radius: 100px;
 }
 input[type=range]::-webkit-slider-thumb {
   height: 20px;
@@ -286,11 +312,13 @@ function loadhome(){
   <input type="button" class="buttony" value="Host Family" onclick=loadhome()><br>
   <input type="button" class="buttony" value="Hotels" onclick=loadhome()><br>
   <input type="button" class="buttony" value="Transportation" onclick=loadhome()><br>
-  <input type="button" class="buttony" value="Safety Map" onclick=loadhome()><br>
-  <input type="button" class="buttony" value="Back to Map" onclick=loadhome()><br>  
+  <input type="button" class="buttony" value="Landmarks" onclick=loadhome()><br>
+  <input type="button" class="buttony" value="Local Shops" onclick=loadhome()><br>
+  <input type="button" class="buttony" value="Safety Map" onclick=loadhome()><br>s
 </div>
+
 <div class="bottomright">
-    <a href="#Contact">Contact</a>
+  <input type="button" class="buttony" value="Contact" onclick=loadhome()><br>
     </div>
     
 <div class="bottomcenter">
@@ -315,7 +343,11 @@ function loadhome(){
     <output>0</output>
 </div>
 
-
+<picture>
+  <img class="resize1" src="HostFamily1.jpg">
+  <img class="resize2" src="Family2.jpg">
+  <img class="resize" src="Family3.jpg">
+</picture>
 
 </body>
 </html> 
