@@ -5,12 +5,14 @@
     <div class="space stars2"></div>
     <div class="space stars3"></div>
     <meta name="robots" content="index, all" />
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <title>Connect2One</title>
     <script>
       var map;
       function init() {
-        map = WE.map('map', {
+        map = new WE.map('map', {
           center: [36.057944835, -112.18688965],
           zoom: 3,
           dragging: true,
@@ -36,7 +38,7 @@
         }).addTo(map);
 
         //Add TileJSON layer
-        var json = {"profile": "mercator", "name": "Grand Canyon USGS", "format": "png", "bounds": [-112.26379395, 35.98245136, -112.10998535, 36.13343831], "minzoom": 0, "version": "1.0.0", "maxzoom": 10, "center": [-112.18688965, 36.057944835, 13], "type": "overlay", "description": "", "basename": "grandcanyon", "tilejson": "2.0.0", "sheme": "xyz", "tiles": ["http://tileserver.maptiler.com/grandcanyon/{z}/{x}/{y}.png"]};
+        var json = {"profile": "mercator", "name": "Grand Canyon USGS", "format": "png", "bounds": [-112.26379395, 35.98245136, -112.10998535, 36.13343831], "minzoom": 10, "version": "1.0.0", "maxzoom": 16, "center": [-112.18688965, 36.057944835, 13], "type": "overlay", "description": "", "basename": "grandcanyon", "tilejson": "2.0.0", "sheme": "xyz", "tiles": ["http://tileserver.maptiler.com/grandcanyon/{z}/{x}/{y}.png"]};
         var grandcanyon = WE.tileLayerJSON(json);
         grandcanyon.addTo(map);
 
@@ -44,20 +46,39 @@
         document.getElementById('opacity2').addEventListener('change', function(e) {
           grandcanyon.setOpacity(e.target.value);
         });
-        //WE.marker([json.center[1], json.center[0]]).addTo(map);
+        WE.marker([json.center[1], json.center[0]]).addTo(map);
 
 
         //Print coordinates of the mouse
         map.on('mousemove', function(e) {
           document.getElementById('coords').innerHTML = e.latlng.lat + ', ' + e.latlng.lng;
         });
-      }
 
+        var marker = WE.marker([51.5, -0.09]).addTo(map);
+        marker.bindPopup("<b>Hello!</b><br>Welcome to London, UK!<br /><span style='font-size:10px;color:#999'>Fun Fact: Stonehenge is older than the Pyramids.</span>", {maxWidth: 150, closeButton: true});
+
+        var marker2 = WE.marker([30.058056, 31.228889]).addTo(map);
+        marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
+
+        var marker3 = WE.marker([53.483959, -2.244644]).addTo(map);
+        marker3.bindPopup("<b>Cairo</b><br>Yay, Manchester!", {maxWidth: 120, closeButton: false});
+        
+        var marker4 = WE.marker([55.953251, -3.188267]).addTo(map);
+        marker4.bindPopup("<b>Cairo</b><br>Yay, Edinburgh!", {maxWidth: 120, closeButton: false});
+
+        var marker5 = WE.marker([59.536667, -1.628637]).addTo(map);
+        marker5.bindPopup("<b>Cairo</b><br>Yay, Fair Island!", {maxWidth: 120, closeButton: false});
+
+        var marker6 = WE.marker([51.752022, -1.257677]).addTo(map);
+        marker6.bindPopup("<b>Cairo</b><br>Yay, Oxford!", {maxWidth: 120, closeButton: false});
+
+        var marker7 = WE.marker([51.621441, -3.943646]).addTo(map);
+        marker7.bindPopup("<b>Cairo</b><br>Yay, SWANSEA!", {maxWidth: 120, closeButton: false});
+      }
 
       function addSomeMarkers() {
         document.getElementById('addmarkers').disabled = true;
 
-        //map.setView([51.505, 0], 5);
         //var marker = WE.marker([51.5, -0.09]).addTo(map);
         //marker.bindPopup("<b>Hello world!</b><br>I am a popup.<br /><span style='font-size:10px;color:#999'>Tip: Another popup is hidden in Cairo..</span>", {maxWidth: 150, closeButton: true}).openPopup();
 
@@ -115,17 +136,8 @@
 
       function panTo(coords) {
         map.panTo(coords);
-        setTimeout(load,3000)
+        setTimeout(load,5000)
       }
-      var before = null;
-          requestAnimationFrame(function animate(now) {
-            var c = map.getPosition();
-            var elapsed = before? now - before: 0;
-            before = now;
-            map.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
-            requestAnimationFrame(animate);
-        });
-      
     </script>
     <style>
         
@@ -247,11 +259,50 @@
     );
 }
 
+.buttony {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttony span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttony span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttony:hover span {
+  padding-right: 25px;
+}
+
+.buttony:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 
       html, body{padding: 0; margin: 0;}
       #map{top: 0; right: 0; bottom: 0; left: 0; position: absolute !important;}
+      #buttons {position: absolute; top:10px; left: 10px;box-sizing: border-box;font-weight:400;}
       #coords{position: absolute; bottom: 10px; right: 10px; z-index: 100000;}
-      #buttons {position: absolute; top:10px; left: 10px;box-sizing: border-box;font-weight:400;box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);}
       #layercontrol{position: absolute; top:10px; right: 10px;}
     </style>
   </head>
@@ -260,15 +311,14 @@
     <div id="map"></div>
     <div id="coords"></div>
     <div id="buttons">
-      <input type="button" value="Fly to Middle East" style="background-color:#4e9af1" onclick="panTo([29, 42]);"><br><br>
-      <input type="button" value="Fly to North America" style="background-color:#f14e4e" onclick="panTo([47, -101]);"><br><br>
-      <input type="button" value="Fly to Asia" style="background-color:#84f14e" onclick="panTo([43, 87]);"><br><br>
-      <input type="button" value="Fly to Europe" style="background-color:#4ef18f" onclick="panTo([54, 25]);"><br><br>
-      <input type="button" value="Fly to South America" style="background-color:#f14ebd" onclick="panTo([-15, -56]);"><br><br>
-      <input type="button" value="Fly to Africa" style="background-color:#f1bb4e" onclick="panTo([2, 19]);"><br><br>
-      <input type="button" value="Fly to Australia" style="background-color:#1924be" onclick="panTo([-24, 133]);"><br><br>
-      <input type="button" value="What's my current position?" style="background-color:floralwhite" onclick="getCurrentCenter();"><br><br>
-      <input type="button" value="Reset Zoom" style="background-color:teal" onclick="setZoom(3);"><br>
+      <input type="button" class="buttony" value="Fly to Middle East" onclick="panTo([29, 42]);"><br><br>
+      <input type="button" class="buttony" value="Fly to North America" onclick="panTo([47, -101]);"><br><br>
+      <input type="button" class="buttony" value="Fly to Asia" onclick="panTo([43, 87]);"><br><br>
+      <input type="button" class="buttony" value="Fly to Europe" onclick="panTo([54, 25]);addSomeMarkers();"><br><br>
+      <input type="button" class="buttony" value="Fly to South America" onclick="panTo([-15, -56]);"><br><br>
+      <input type="button" class="buttony" value="Fly to Africa" onclick="panTo([2, 19]);"><br><br>
+      <input type="button" class="buttony" value="Fly to Australia" onclick="panTo([-24, 133]);"><br><br>
+      <input type="button" class="buttony" value="What's my current position?" onclick="getCurrentCenter();"><br><br>
     </div>
   </body>
 </html>
