@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <script>
+    function load(){
+        window.location='London_UK.html';
+      }
+      function initialize() {
+        var earth = new WE.map('earth_div');
+        WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(earth);
+
+        var marker = WE.marker([51.5, -0.09]).addTo(earth);
+        marker.bindPopup("<b>Hello!</b><br>Welcome to London, UK!<br /><span style='font-size:10px;color:#999'>Fun Fact: Stonehenge is older than the Pyramids.</span>", {maxWidth: 150, closeButton: true});
+
+        var marker2 = WE.marker([30.058056, 31.228889]).addTo(earth);
+        marker2.bindPopup("<b>Cairo</b><br>Yay, you found me!", {maxWidth: 120, closeButton: false});
+
+        var marker3 = WE.marker([53.483959, -2.244644]).addTo(earth);
+        marker3.bindPopup("<b>Cairo</b><br>Yay, Manchester!", {maxWidth: 120, closeButton: false});
+        
+        var marker4 = WE.marker([55.953251, -3.188267]).addTo(earth);
+        marker4.bindPopup("<b>Cairo</b><br>Yay, Edinburgh!", {maxWidth: 120, closeButton: false});
+
+        var marker5 = WE.marker([59.536667, -1.628637]).addTo(earth);
+        marker5.bindPopup("<b>Cairo</b><br>Yay, Fair Island!", {maxWidth: 120, closeButton: false});
+
+        var marker6 = WE.marker([51.752022, -1.257677]).addTo(earth);
+        marker6.bindPopup("<b>Cairo</b><br>Yay, Oxford!", {maxWidth: 120, closeButton: false});
+
+        var marker7 = WE.marker([51.621441, -3.943646]).addTo(earth);
+        marker7.bindPopup("<b>Cairo</b><br>Yay, SWANSEA!", {maxWidth: 120, closeButton: false});
+
+
+        var markerCustom = WE.marker([50, -9], '/img/logo-webglearth-white-100.png', 100, 24).addTo(earth);
+
+        earth.setView([55,-2], 5);
+      }
+      //setTimeout(load,4500)
+    </script>
+    <style>
+      html, body{padding: 0; margin: 0;}
+      #earth_div{top: 0; right: 0; bottom: 0; left: 0; position: absolute !important;}
+    </style>
+  </head>
+  <body onload="initialize()">
+    <div id="earth_div"></div>
+    
+  </body>
+</html>
