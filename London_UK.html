@@ -203,7 +203,7 @@ img.resize {
   max-width:25%;
   max-height:25%;
   float: left;
-  margin-left: 70px;
+  margin-left: 50px;
 }
 img.resize1 {
   max-width:25%;
@@ -215,11 +215,11 @@ img.resize2 {
   max-width:20%;
   max-height:20%;
   float: left;
-  margin-left: 70px;
+  margin-left: 50px;
 }
 input[type=range] {
   -webkit-appearance: none;
-  margin: 20px 0;
+  margin: 30px 0;
   width: 10%;
   
 }
@@ -282,6 +282,45 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   margin-left: -5px;
   margin-top: -1px;
 }
+
+.container {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-block1 {
+  position: absolute;
+  bottom: 250.5px;
+  right: 848px;
+  background-color: rgba(0, 0, 0, 0.322);
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 380px;
+}
+
+
+.text-block2 {
+  position: absolute;
+  bottom: 130px;
+  right: 493px;
+  background-color: rgba(0, 0, 0, 0.322);
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 305px;
+}
+
+.text-block3 {
+  position: absolute;
+  bottom: 250.5px;
+  right: 63.5px;
+  background-color: rgba(0, 0, 0, 0.322);
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 380.5px;
+}
 </style>
 
 <script>
@@ -343,12 +382,34 @@ function loadhome(){
     <output>0</output>
 </div>
 
-<picture>
-  <img class="resize1" src="HostFamily1.jpg">
-  <!--<figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>-->
-  <img class="resize2" src="Family2.jpg">
-  <img class="resize" src="Family3.jpg">
-</picture>
+<div id="container" style="white-space:nowrap">
+  <a href="transition.html"> 
+  <img class="resize1" alt="Nature" src="HostFamily1.jpg"></a>
+  <div class = "text-block1">
+    <h4 style="font-size: 13px;">Hi! We are the Efrin family. We can’t wait to meet</h4>
+    <h4 style="font-size: 13px;">and get to know you! We love hiking, backpacking,</h4>
+    <h4 style="font-size: 13px;"> and bowling!<h4>
+  </div>
+  
+  <a href="transition.html"> 
+  <img class="resize2" src="Family2.jpg"/></a>
+  <div class = "text-block2">
+    <h4 style="font-size: 13px;">Hello! We are the Yashida family.</h4>
+    <h4 style="font-size: 13px;">Learning about other cultures is the best</h4>
+    <h4 style="font-size: 13px;">way to bring the world closer together.</h4>
+    <h4 style="font-size: 13px;">I wouldn’t give up my experiences hosting</h4>
+    <h4 style="font-size: 13px;">students for all the money in the world.</h4>
+  </div>
+
+  <a href="transition.html"> 
+  <img class="resize" src="Family3.jpg"></a>
+  <div class = "text-block3">
+    <h4 style="font-size: 13px;">Greetings! We are the Müller family. Our</h4>
+    <h4 style="font-size: 13px;">own kids have grown so much as individuals</h4>
+    <h4 style="font-size: 13px;">and they love having exchange students around.</h4>
+  </div>
+  </div>
+
 
 </body>
 </html> 
